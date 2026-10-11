@@ -1,0 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset
+db = pd.read_csv("/content/drive/MyDrive/PIMA Indian Dataset.csv")
+
+# Display the first five rows
+print("First Five Rows of the Dataset:")
+print(db.head())
+
+# Dataset structure and summary statistics
+print("\nDataset Information:")
+db.info()
+
+print("\nSummary Statistics:")
+print(db.describe())
+
+# Visualize the distribution of each feature
+db.hist(bins=50, figsize=(20, 15))
+plt.suptitle("Distribution of Dataset Features")
+plt.tight_layout()
+plt.show()
+
+# Pairplot to visualize relationships between features
+sns.pairplot(db)
+plt.show()
