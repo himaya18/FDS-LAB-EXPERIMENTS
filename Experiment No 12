@@ -1,0 +1,48 @@
+# sample calculation for low range(lr), upper range (ur), percentile
+import numpy as np
+
+array = np.random.randint(1, 100, 16)
+
+# randomly generate 16 numbers between 1 to 100
+array
+
+array.mean()
+
+np.percentile(array, 25)
+
+np.percentile(array, 50)
+
+np.percentile(array, 75)
+
+np.percentile(array, 100)
+
+# outliers detection
+def outDetection(array):
+    sorted(array)
+    Q1, Q3 = np.percentile(array, [25, 75])
+    IQR = Q3 - Q1
+    lr = Q1 - (1.5 * IQR)
+    ur = Q3 + (1.5 * IQR)
+    return lr, ur
+
+lr, ur = outDetection(array)
+
+lr, ur
+
+import seaborn as sns
+
+%matplotlib inline
+
+sns.displot(array)
+
+sns.distplot(array)
+
+sns.displot(new_array)
+
+lr1, ur1 = outDetection(new_array)
+
+lr1, ur1
+
+final_array = new_array[(new_array > lr1) & (new_array
+
+sns.distplot(final_array)
