@@ -1,0 +1,26 @@
+from cryptography.fernet import Fernet
+
+# Generate key and encrypt data
+key = Fernet.generate_key()
+f = Fernet(key)
+
+token = f.encrypt(b"Rajalakshmi Engineering College")
+print("Encrypted Token:", token)
+
+# Decrypt data
+decrypted_data = f.decrypt(token)
+print("Decrypted Data:", decrypted_data)
+
+# Another encryption and decryption example
+key = Fernet.generate_key()
+cipher_suite = Fernet(key)
+
+plain_text = b"Rajalakshmi Engineering College."
+cipher_text = cipher_suite.encrypt(plain_text)
+
+# Decrypt data
+decrypted_text = cipher_suite.decrypt(cipher_text)
+
+print("Original Data:", plain_text)
+print("Encrypted Data:", cipher_text)
+print("Decrypted Data:", decrypted_text)
